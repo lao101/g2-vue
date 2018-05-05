@@ -26,7 +26,7 @@
       <td class="text-xs-left">{{ props.item.code }}</td>
       <td class="text-xs-left">{{ props.item.fname }}</td>
       <td class="text-xs-left">{{ props.item.lname }}</td>
-      <td class="text-xs-left">{{ props.item.class }}</td>
+      <td class="text-xs-left">{{ props.item.class_id }}</td>
       <td class="text-xs-left"><v-icon @click="editStudent(props.item.id)" class="green--text" style="cursor: pointer">edit</v-icon></td>
     </template>
   </v-data-table> 
