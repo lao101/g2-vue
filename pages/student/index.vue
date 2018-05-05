@@ -20,15 +20,14 @@
   <v-data-table
     :headers="headers"
     :items="students"
-    hide-actions
     class="elevation-1"
   >
     <template slot="items" slot-scope="props">
       <td class="text-xs-left">{{ props.item.code }}</td>
       <td class="text-xs-left">{{ props.item.fname }}</td>
       <td class="text-xs-left">{{ props.item.lname }}</td>
-      <td class="text-xs-center">{{ props.item.class }}</td>
-      <td class="text-xs-center"><v-btn @click="editStudent(props.item.id)">Edit</v-btn></td>
+      <td class="text-xs-left">{{ props.item.class }}</td>
+      <td class="text-xs-left"><v-icon @click="editStudent(props.item.id)" class="green--text" style="cursor: pointer">edit</v-icon></td>
     </template>
   </v-data-table> 
   </div>   
