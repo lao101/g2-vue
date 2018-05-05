@@ -40,7 +40,7 @@ export default {
       return {
         items: [
           { title: 'Home', icon: 'home', url: '/' },
-          { title: 'Group', icon: 'group', url: '/group' },
+          { title: 'Classroom', icon: 'group', url: '/classroom' },
           { title: 'Subject', icon: 'group', url: '/subject' },
           { title: 'Teacher', icon: 'group', url: '/teacher' },
           { title: 'Student', icon: 'group', url: '/student' },

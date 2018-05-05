@@ -17,19 +17,19 @@
     single-line
 />
 
-  <v-data-table
-    :headers="headers"
-    :items="students"
-    class="elevation-1"
-  >
-    <template slot="items" slot-scope="props">
-      <td class="text-xs-left">{{ props.item.code }}</td>
-      <td class="text-xs-left">{{ props.item.fname }}</td>
-      <td class="text-xs-left">{{ props.item.lname }}</td>
-      <td class="text-xs-left">{{ props.item.class_id }}</td>
-      <td class="text-xs-left"><v-icon @click="editStudent(props.item.id)" class="green--text" style="cursor: pointer">edit</v-icon></td>
-    </template>
-  </v-data-table> 
+    <v-data-table
+        :headers="headers"
+        :items="students"
+        class="elevation-1"
+    >
+        <template slot="items" slot-scope="props">
+        <td class="text-xs-left">{{ props.item.code }}</td>
+        <td class="text-xs-left">{{ props.item.fname }}</td>
+        <td class="text-xs-left">{{ props.item.lname }}</td>
+        <td class="text-xs-left">{{ props.item.class_id }}</td>
+        <td class="text-xs-left"><v-icon @click="editStudent(props.item.id)" class="green--text" style="cursor: pointer">edit</v-icon></td>
+        </template>
+    </v-data-table> 
   </div>   
 </template>
 
@@ -69,7 +69,7 @@ export default {
 
   methods: {
       async getStudent() {
-        let res = await this.$http.get('/student', {params: {class: this.cls}})
+        let res = await this.$http.get('/student', {params: {cls: this.cls}})
         this.students = res.data.student
       },
       editStudent(id) {

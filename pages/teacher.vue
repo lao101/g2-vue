@@ -71,19 +71,19 @@
         <!-- v-dialog detailTeacher -->
         <v-dialog v-model="dialogDetail" max-width="500px">
             <v-card>
-            <v-card-text>
-                <v-container grid-list-md text-xs-center>
-                    <v-layout row wrap> 
-                        <v-flex md12>ID: {{dtid}}</v-flex>
-                        <v-flex md12>Code: {{dtcode}}</v-flex>
-                        <v-flex md12>First Name: {{dtfname}}</v-flex>
-                        <v-flex md12>Last Name: {{dtlname}}</v-flex>
-                    </v-layout>
-                </v-container>
-            </v-card-text>
-            <v-card-actions>
-                <v-btn color="primary" flat @click.stop="dialogDetail=false">Close</v-btn>
-            </v-card-actions>
+                <v-card-text>
+                    <v-container grid-list-md text-xs-center>
+                        <v-layout row wrap> 
+                            <v-flex md12>ID: {{dtid}}</v-flex>
+                            <v-flex md12>Code: {{dtcode}}</v-flex>
+                            <v-flex md12>First Name: {{dtfname}}</v-flex>
+                            <v-flex md12>Last Name: {{dtlname}}</v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn color="primary" flat @click.stop="dialogDetail=false">Close</v-btn>
+                </v-card-actions>
             </v-card>
         </v-dialog> <!-- v-dialog Detail -->
 
@@ -254,7 +254,6 @@ export default {
             },
 
             async submitEdit(id) {
-                // alert("submitEdit" + id)
                 let res = await this.$http.post('/teacher/save/' + id, {
                     fname: this.edfname,
                     lname: this.edlname,
