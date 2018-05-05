@@ -43,7 +43,7 @@ export default {
           { title: 'About Us', icon: 'group', url: '/about' },
           { title: 'Group', icon: 'group', url: '/group' },
           { title: 'Subject', icon: 'group', url: '/subject' },
-          { title: 'Teacher', icon: 'group', url: '/iteacher' },
+          { title: 'Teacher', icon: 'group', url: '/teacher' },
           { title: 'Mark', icon: 'group', url: '/mark' },
           { title: 'Chat', icon: 'group', url: '/chat' },
         ],

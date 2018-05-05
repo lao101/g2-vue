@@ -5,7 +5,7 @@
         </div>
         <v-data-table
             :headers="headers"
-            :items="teachers"
+            :items="teachers2"
             hide-actions
             class="elevation-1">
                 <template slot="items" slot-scope="props">
@@ -154,7 +154,7 @@ export default {
     data() {
         return {
             cls: '1',
-            teachers: [],
+            teachers2: [],
             headers: [
                 { text: 'Code', align: 'left', sortable: false},
                 { text: 'First Name', align: 'left', sortable: false},
@@ -213,8 +213,8 @@ export default {
     methods: {
             async getTeacher() {
                 let res = await this.$http.get('/teacher')
-                this.teachers = res.data.teacher
-                // console.log(res.data.status)
+                this.teachers2 = res.data.teachers
+                console.log(this.teachers2)
             },
 
             editTeacher(prop) {
@@ -248,8 +248,8 @@ export default {
                     if (res.data.status === true) {
                         this.dialogAdd = !this.dialogAdd
                     }
-                    this.getTeacher()
                 })
+                this.getTeacher()
                 // alert(res.data.status)
             }},
 
