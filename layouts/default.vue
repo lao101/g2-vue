@@ -41,8 +41,10 @@ export default {
         items: [
           { title: 'Home', icon: 'home', url: '/' },
           { title: 'About Us', icon: 'group', url: '/about' },
-          { title: 'Teacher', icon: 'accessibility', url: '/teacher' },
-          { title: 'Teacher2', icon: 'person outline', url: '/iteacher' },
+          { title: 'Group', icon: 'group', url: '/group' },
+          { title: 'Subject', icon: 'group', url: '/subject' },
+          { title: 'Teacher', icon: 'person outline', url: '/iteacher' },
+          { title: 'Mark', icon: 'person outline', url: '/mark' },
           { title: 'Chat', icon: 'person outline', url: '/chat' },
         ],
         right: null
