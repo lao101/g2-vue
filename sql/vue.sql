@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2018 at 10:41 AM
+-- Generation Time: May 05, 2018 at 02:54 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `classrooms` (
-  `class` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `classCode` char(8) COLLATE utf8_unicode_ci NOT NULL,
   `classDescript` varchar(40) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -38,7 +38,7 @@ CREATE TABLE `classrooms` (
 -- Dumping data for table `classrooms`
 --
 
-INSERT INTO `classrooms` (`class`, `classCode`, `classDescript`) VALUES
+INSERT INTO `classrooms` (`id`, `classCode`, `classDescript`) VALUES
 (1, '59210101', 'ช.2/1 ยย.'),
 (2, '59210102', 'ช.2/2 ยย.'),
 (3, '59210103', 'ช.2 ยานยนต'),
@@ -1660,6 +1660,19 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`id`, `code`, `fname`, `lname`) VALUES
+(1, '1001', 'ไหว', 'ใจร้าย'),
+(2, '1002', 'สมชาย', 'หนองฮี'),
+(3, '1003', 'สมหมาย', 'ทองดี'),
+(4, '1004', 'นิคม', 'ปักกาเวสา'),
+(5, '1005', 'บรรเลง', 'อำไพ'),
+(6, '1006', 'กนกพร', 'บุญหล้า'),
+(7, '1007', 'ปัญญา', 'ใจดี');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -1667,7 +1680,7 @@ CREATE TABLE `teacher` (
 -- Indexes for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  ADD PRIMARY KEY (`class`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `marks`
@@ -1703,7 +1716,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  MODIFY `class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `marks`
@@ -1721,7 +1734,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

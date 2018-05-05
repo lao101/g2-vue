@@ -3,19 +3,15 @@
         <div class="text-xs-right">
             <v-btn color="primary" dark @click.stop="dialogAdd = !dialogAdd"><v-icon>add</v-icon> Add New</v-btn>
         </div>
-        <v-data-table
-            :headers="headers"
-            :items="teachers2"
-            hide-actions
-            class="elevation-1">
-                <template slot="items" slot-scope="props">
-                    <td class="text-xs-left">{{ props.item.code }}</td>
-                    <td class="text-xs-left">{{ props.item.fname }}</td>
-                    <td class="text-xs-left">{{ props.item.lname }}</td>
-                    <td class="text-xs-left"><v-icon @click="editTeacher(props)" class="green--text" style="cursor: pointer">mode edit</v-icon></td>
-                    <td class="text-xs-left"><v-icon @click="deleteTeacher(props.item.id)" class="red--text" style="cursor: pointer">delete forever</v-icon></td>
-                    <td class="text-xs-left"><v-icon @click="detailTeacher(props)" class="info--text" style="cursor: pointer">dvr</v-icon></td>
-                </template>
+        <v-data-table :headers="headers" :items="teachers" class="elevation-3">
+            <template slot="items" slot-scope="props">
+                <td class="text-xs-left">{{ props.item.code }}</td>
+                <td class="text-xs-left">{{ props.item.fname }}</td>
+                <td class="text-xs-left">{{ props.item.lname }}</td>
+                <td class="text-xs-left"><v-icon @click="editTeacher(props)" class="green--text" style="cursor: pointer">edit</v-icon></td>
+                <td class="text-xs-left"><v-icon @click="deleteTeacher(props.item.id)" class="red--text" style="cursor: pointer">delete</v-icon></td>
+                <td class="text-xs-left"><v-icon @click="detailTeacher(props)" class="info--text" style="cursor: pointer">dvr</v-icon></td>
+            </template>
         </v-data-table>
 
         <v-dialog v-model="dialogAdd" max-width="500px">
@@ -154,12 +150,12 @@ export default {
     data() {
         return {
             cls: '1',
-            teachers2: [],
+            teachers: [],
             headers: [
                 { text: 'Code', align: 'left', sortable: false},
                 { text: 'First Name', align: 'left', sortable: false},
                 { text: 'Last Name', align: 'left', sortable: false},
-                { text: 'Update', align: 'center', sortable: false},
+                { text: 'Update', align: 'left', sortable: false},
                 { text: 'Delete', align: 'left', sortable: false},
                 { text: 'Detial', align: 'left', sortable: false},
             ],
@@ -213,8 +209,8 @@ export default {
     methods: {
             async getTeacher() {
                 let res = await this.$http.get('/teacher')
-                this.teachers2 = res.data.teachers
-                console.log(this.teachers2)
+                this.teachers = res.data.teachers
+                console.log(this.teachers)
             },
 
             editTeacher(prop) {
