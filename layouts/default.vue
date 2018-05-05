@@ -22,7 +22,7 @@
     </v-navigation-drawer>
 
     <v-toolbar app>
-      <v-toolbar-title @click="homeClick">ScoreInput</v-toolbar-title>
+      <v-toolbar-title @click="homeClick" style="cursor: pointer"><v-icon class="info--text">home</v-icon> ScoreInput</v-toolbar-title>
       <v-spacer/>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
     </v-toolbar>
@@ -40,7 +40,6 @@ export default {
       return {
         items: [
           { title: 'Home', icon: 'home', url: '/' },
-          { title: 'About Us', icon: 'group', url: '/about' },
           { title: 'Group', icon: 'group', url: '/group' },
           { title: 'Subject', icon: 'group', url: '/subject' },
           { title: 'Teacher', icon: 'group', url: '/teacher' },
