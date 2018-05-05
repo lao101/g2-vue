@@ -41,11 +41,11 @@ export default {
         items: [
           { title: 'Home', icon: 'home', url: '/' },
           { title: 'About Us', icon: 'group', url: '/about' },
-          // { title: 'Group', icon: 'group', url: '/group' },
-          // { title: 'Subject', icon: 'group', url: '/subject' },
-          { title: 'Teacher', icon: 'person outline', url: '/iteacher' },
-          // { title: 'Mark', icon: 'person outline', url: '/mark' },
-          { title: 'Chat', icon: 'person outline', url: '/chat' },
+          { title: 'Group', icon: 'group', url: '/group' },
+          { title: 'Subject', icon: 'group', url: '/subject' },
+          { title: 'Teacher', icon: 'group', url: '/iteacher' },
+          { title: 'Mark', icon: 'group', url: '/mark' },
+          { title: 'Chat', icon: 'group', url: '/chat' },
         ],
         right: null
       }
