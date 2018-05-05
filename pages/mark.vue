@@ -5,7 +5,7 @@
             <v-form v-model="valid" ref="form" lazy-validation>  
                 <v-layout row wrap>
                     <v-flex md12>
-
+                        
                     </v-flex>
                 </v-layout>
             </v-form>
