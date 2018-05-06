@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2018 at 02:54 PM
+-- Generation Time: May 06, 2018 at 06:39 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -91,10 +91,19 @@ INSERT INTO `classrooms` (`id`, `classCode`, `classDescript`) VALUES
 CREATE TABLE `marks` (
   `id` int(11) NOT NULL,
   `mark` int(3) NOT NULL,
-  `class` int(11) NOT NULL,
+  `grade` float(3,1) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `teacher_id` int(11) NOT NULL
+  `teacher_id` int(11) NOT NULL,
+  `subjCode` char(9) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='mark';
+
+--
+-- Dumping data for table `marks`
+--
+
+INSERT INTO `marks` (`id`, `mark`, `grade`, `student_id`, `teacher_id`, `subjCode`) VALUES
+(1, 33, 3.5, 0, 0, ''),
+(2, 0, 4.0, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -108,8 +117,17 @@ CREATE TABLE `student` (
   `fname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birth` date DEFAULT NULL,
-  `class` int(11) DEFAULT NULL
+  `class_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `code`, `fname`, `lname`, `birth`, `class_id`) VALUES
+(1, '5921010001', 'สมชาย', 'ใจดี', '2000-01-01', 59210101),
+(2, '5921010002', 'สมจิตร', 'มานะดี', '2018-05-11', 59210101),
+(3, '6032040001', 'สมพงษ์', 'เลือดทหาร', '2018-05-03', 60320401);
 
 -- --------------------------------------------------------
 
@@ -1672,6 +1690,25 @@ INSERT INTO `teacher` (`id`, `code`, `fname`, `lname`) VALUES
 (6, '1006', 'กนกพร', 'บุญหล้า'),
 (7, '1007', 'ปัญญา', 'ใจดี');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `user` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pass` char(5) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `user`, `pass`) VALUES
+(1, 'admin', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -1709,6 +1746,12 @@ ALTER TABLE `teacher`
   ADD UNIQUE KEY `code` (`code`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1722,19 +1765,25 @@ ALTER TABLE `classrooms`
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

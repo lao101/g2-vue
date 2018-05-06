@@ -111,6 +111,9 @@ export default {
                 { text: 'Mark', align: 'left', sortable: false},
             ],
             dialogMessage: false,
+
+            //สำหรับส่งคะแนน
+            data: [],
         }
     },
     computed: {
@@ -166,7 +169,10 @@ export default {
 
         saveMark() {
             this.dialogMessage = !this.dialogMessage
-            //alert( this.subjectId + ", " + this.teacherId +"\n ทำต่อนะจ๊ะ")
+            this.data.push(
+                {mark: 60, grade: 3.5, sid: this.studentId, tid: this.teacherId, subid: this.subjectId}
+            )
+            alert(this.data.sid)
         }
         
     }

@@ -40,9 +40,9 @@ export default {
       return {
         items: [
           { title: 'Home', icon: 'home', url: '/' },
-          { title: 'Teacher', icon: 'group', url: '/teacher' },
           { title: 'Classroom', icon: 'group', url: '/classroom' },
           { title: 'Subject', icon: 'group', url: '/subject' },
+          { title: 'Teacher', icon: 'group', url: '/teacher' },
           { title: 'Student', icon: 'group', url: '/student' },
           { title: 'Mark', icon: 'group', url: '/mark' },
           { title: 'Chat', icon: 'group', url: '/chat' },
@@ -50,14 +50,6 @@ export default {
         right: null
       }
     },  
-
-    //สำหรับ login
-    // created() {
-    // let userObj = JSON.parse(window.sessionStorage.getItem('user') || {})
-    // if (!userObj.user) {
-    //     return this.$router.replace('/login')
-    // }
-// },  
 
   computed: {
     online: {
