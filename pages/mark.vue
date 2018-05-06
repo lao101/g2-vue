@@ -72,6 +72,7 @@
             <v-card>
                 <v-card-text>
                     <v-container grid-list-md text-xs-center>
+                        <h1>ยังทำไม่สำเร็จครับ !!</h1>
                         <v-layout row wrap> 
                             <v-flex md12>Teacher ID: {{teacherId}}</v-flex>
                             <v-flex md12>Subject ID: {{subjectId}}</v-flex>
