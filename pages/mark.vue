@@ -53,11 +53,7 @@
                             <td class="text-xs-left">{{ props.item.fname }}</td>
                             <td class="text-xs-left">{{ props.item.lname }}</td>
                             <td class="text-xs-left">
-                                <v-text-field
-                                    label="คะแนน"
-                                    v-model="mark"
-                                    required
-                                ></v-text-field>
+                                <v-text-field label="คะแนน" v-model="props.item.mark" required/>
                             </td>
                         </template>
                     </v-data-table>
@@ -97,7 +93,7 @@ export default {
             teacherId: 0,
             subjectId: '',
             classId: '',
-            studentId: 0,
+            studentId: '',
             teacherList: [],
             subjectList: [],
             classList: [],
@@ -113,7 +109,7 @@ export default {
             dialogMessage: false,
 
             //สำหรับส่งคะแนน
-            data: [],
+            // data: [],
         }
     },
     computed: {
@@ -168,11 +164,18 @@ export default {
         },
 
         saveMark() {
-            this.dialogMessage = !this.dialogMessage
-            this.data.push(
-                {mark: 60, grade: 3.5, sid: this.studentId, tid: this.teacherId, subid: this.subjectId}
-            )
-            alert(this.data.sid)
+            console.log({
+                teacherId: this.teacherId,
+                subid: this.subjectId,
+                marks: this.students.map(st => ({sid: st.code, mark: st.mark})),
+            })
+            this.$http.post('/mark/save', {
+                teacherId: this.teacherId,
+                subid: this.subjectId,
+                marks: this.students.map(st => ({sid: st.code, mark: st.mark})),
+            })
+            console.log(this.students)
+            // this.dialogMessage = !this.dialogMessage
         }
         
     }
