@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 06:39 AM
+-- Generation Time: May 10, 2018 at 06:18 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -92,8 +92,8 @@ CREATE TABLE `marks` (
   `id` int(11) NOT NULL,
   `mark` int(3) NOT NULL,
   `grade` float(3,1) NOT NULL,
-  `student_id` int(11) NOT NULL,
-  `teacher_id` int(11) NOT NULL,
+  `student_id` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_id` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subjCode` char(9) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='mark';
 
@@ -102,8 +102,8 @@ CREATE TABLE `marks` (
 --
 
 INSERT INTO `marks` (`id`, `mark`, `grade`, `student_id`, `teacher_id`, `subjCode`) VALUES
-(1, 33, 3.5, 0, 0, ''),
-(2, 0, 4.0, 0, 0, '');
+(1, 44, 0.0, '5921010001', '1001', '1101-1201'),
+(2, 67, 2.5, '5921010002', '1001', '1101-1201');
 
 -- --------------------------------------------------------
 
@@ -1723,7 +1723,10 @@ ALTER TABLE `classrooms`
 -- Indexes for table `marks`
 --
 ALTER TABLE `marks`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `student_id` (`student_id`),
+  ADD KEY `teacher_id` (`teacher_id`),
+  ADD KEY `subjCode` (`subjCode`);
 
 --
 -- Indexes for table `student`
@@ -1777,7 +1780,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`

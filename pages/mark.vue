@@ -172,11 +172,33 @@ export default {
             this.$http.post('/mark/save', {
                 teacherId: this.teacherId,
                 subid: this.subjectId,
-                marks: this.students.map(st => ({sid: st.code, mark: st.mark})),
+                marks: this.students.map(st => ({sid: st.code, mark: st.mark, grade: this.setMark(st.mark)})),
             })
             console.log(this.students)
             // this.dialogMessage = !this.dialogMessage
-        }
+        },
+
+        setMark(mark) {
+            let grade = 0
+            if (mark<50) {
+                grade = 0
+            } else if(mark<55) {
+                grade = 1
+            } else if(mark<60) {
+                grade = 1.5
+            } else if(mark<65) {
+                grade = 2
+            } else if(mark<70) {
+                grade = 2.5
+            } else if(mark<75) {
+                grade = 3
+            } else if(mark<80) {
+                grade = 3.5
+            } else {
+                grade = 4
+            }
+            return grade
+        },
         
     }
 }
