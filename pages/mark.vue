@@ -107,9 +107,6 @@ export default {
                 { text: 'Mark', align: 'left', sortable: false},
             ],
             dialogMessage: false,
-
-            //สำหรับส่งคะแนน
-            // data: [],
         }
     },
     computed: {
